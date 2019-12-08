@@ -1,74 +1,56 @@
 <template>
   <div class=info-container>
-    <!-- ----left-------- -->
-    <div class="left">
-      <dl>
-        <dt class="left-title">企业文化</dt>
-        <dd class="item-wrapper">
-          <p class="left-item">最新动态</p>
-          <p class="left-item item-spe">价值理念</p>
-          <p class="left-item">员工风采</p>
-        </dd>
-      </dl>
+    <div class="info-wrapper">
+      <p class="info-title">企业文化</p>
+      <p class="frist-title">{{inner}}</p>
+      <el-tabs :tab-position="tabPosition" style="height: 200px;" @tab-click="handleChange">
+        <el-tab-pane label="最新动态">
+          <info-nav1></info-nav1>
+        </el-tab-pane>
+        <el-tab-pane label="价值理念">
+          <info-nav2></info-nav2>
+        </el-tab-pane>
+        <el-tab-pane label="员工风采">
+          <info-nav3></info-nav3>
+        </el-tab-pane>
+      </el-tabs>
     </div>
-    <!-- ----right------- -->
-    <div class="right">
-      <!-- -----一级标题--- -->
-      <p class="first-title">价值理念</p>
-      <el-divider></el-divider>
-      <!-- -----内容------ -->
-      <dl
-        class="list-wrapper"
-        v-for="item of list"
-        :key="item.id"
-      >
-        <dt class="list-img">
-          <img src="~assets/images/位图备份 6.png"/>
-        </dt>
-        <dd class="list-cont">
-          <div class="list-title">
-            {{item.title}}
-          </div>
-          <div class="list-desc">
-            {{item.desc}}
-          </div>
-          <div class="more">
-            <p class="date">{{item.date}}</p>
-            <el-button>+阅读全文</el-button>
-          </div>
-        </dd>
-      </dl>
+    <!-- -----分页器------- -->
+    <div class="pages">
+      <div class="block">
+        <el-pagination
+          :current-page.sync="currentPage"
+          :page-size="4"
+          layout=" prev, pager, next"
+          :total="4">
+        </el-pagination>
+      </div>
     </div>
-    <div class="bottom"></div>
   </div>
 </template>
 
 <script>
+import InfoNav1 from './components/nav1.vue'
+import InfoNav2 from './components/nav2.vue'
+import InfoNav3 from './components/nav3.vue'
 export default {
-  name: 'CultureInfo',
+  name: 'CultureInfo1',
+  components: {
+    InfoNav1,
+    InfoNav2,
+    InfoNav3
+  },
   data () {
     return {
-      list: [{
-        id: '0001',
-        title: '标题标题标题标题标题标题',
-        desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
-        date: '2019-08-20 10:35'
-      }, {
-        id: '0002',
-        title: '标题标题标题标题标题标题',
-        desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
-        date: '2019-08-20 10:35'
-      }, {
-        id: '0003',
-        title: '标题标题标题标题标题标题',
-        desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
-        date: '2019-08-20 10:35'
-      }, {
-        id: '0004',
-        title: '标题标题标题标题标题标题',
-        desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
-        date: '2019-08-20 10:35'
-      }]
+      inner: '最新动态',
+      pages: '',
+      tabPosition: 'left',
+      currentPage: 1
+    }
+  },
+  methods: {
+    handleChange (val) {
+      this.inner = this.inner === val.label ? this.inner : val.label
     }
   }
 }
@@ -76,133 +58,109 @@ export default {
 
 <style scoped>
   .info-container {
+    font-family: PingFang-SC-Bold,PingFang-SC;
     position: relative;
     width: 1366px;
   }
-  /* ---------left--------- */
-  .left {
-    position: absolute;
-    top: 100px;
-    left: 115px;
-    width: 282px;
-    height: 354px;
+  .info-wrapper {
+    margin-top: 100px;
+    margin-left: 115px;
   }
-  .left-title {
+  .info-title {
     width: 282px;
-    height: 90px;
     line-height: 90px;
     text-indent: 30px;
     font-size: 24px;
     font-weight: bold;
     color: rgba(255,255,255,1);
-    font-family: PingFang-SC-Bold,PingFang-SC;
     background-color: rgba(255, 92, 92, 1);
   }
-  .item-wrapper {
-    height: 264px;
-    width: 280px;
-    font-size: 20px;
-    font-family: PingFangSC-Regular,PingFang SC;
+  .frist-title {
+    width: 793px;
+    position: absolute;
+    top: 0;
+    left: 457px;
+    height: 90px;
     font-weight: 400;
-    color: rgba(0,0,0,1);
-    border: 1px solid rgba(171,171,171,1);
+    font-size: 24px;
+    line-height: 90px;
+    color: rgba(0, 0, 0, 1.0);
   }
-  .left-item {
-    width: 277px;
+  /* ----分割线---------- */
+  .frist-title:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #ababab;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    left: 0;
+  }
+  /* ---------tabs---------- */
+  /*
+    el-tabs el-tabs--left
+    --左边：el-tabs__header is-left
+      --el-tabs__nav-wrap is-left
+        --el-tabs__nav-scroll
+          --el-tabs__nav-scroll:after
+    --右边：el-tabs__content
+   */
+  .el-tabs {
+    height: 100% !important;
+    overflow: hidden;
+  }
+  /* 左侧导航的宽高和边框*/
+  .el-tabs >>> .el-tabs__header {
+    margin-right: 0px;
+    width: 280px;
+    height: 100%;
+    border: 1px solid rgba(171,171,171,1);
+    border-top: none;
+  }
+  /* 改变左侧导航的背景、宽高 */
+  .info-wrapper >>> .el-tabs__nav-wrap,
+  .info-wrapper >>> .is-left:after {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+  /* 取消激活导航右侧跟随的竖线 */
+  .info-wrapper >>> .el-tabs__active-bar {
+    width: 0;
+  }
+  /* 修改每项导航的样式 */
+  .info-wrapper >>> .el-tabs__item {
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400px;
     height: 88px;
     text-indent: 30px;
     line-height: 88px;
+    text-align: left;
   }
-  .item-spe {
+  /* 激活状态导航的样式 */
+  .info-wrapper >>> .is-active {
+    color: rgba(255,92,92,1);
     background-color: rgba(241,241,241,1);
-    color: rgba(255,92,92,1);
-    border: 1px solid rgba(171,171,171,1);
   }
-  /* --------right--------- */
-  .right {
-    position: absolute;
-    top: 100px;
-    left: 475px;
-    width: 794px;
+  .el-tabs__header >>> .el-tabs--left {
+    margin-right: 0;
   }
-  .el-divider--horizontal {
-    height: 2px;
-    color: #ababab;
-    margin-top: 0;
+  .el-tabs >>> .el-tabs__content {
+    width: 857px;
+    margin-left: 60px;
   }
-  .first-title {
-    width: 96px;
-    height: 90px;
-    font-size: 24px;
-    font-family: PingFangSC-Regular,PingFang SC;
-    font-weight: 400;
-    color: rgba(0,0,0,1);
-    line-height: 90px;
+  .el-tab-pane {
+    margin-left: 60px;
   }
-  /* -----右侧内容-------- */
-  .list-wrapper {
-    position: relative;
-    width: 793px;
-    height: 160px;
-    margin-bottom: 60px;
+  /* ----------分页器-------- */
+  .pages {
+    width: 300px;
+    margin: 0 auto;
   }
-  .list-img {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    width: 201px;
-    height: 160px;
-  }
-  .list-cont {
-    position: absolute;
-    top: 5px;
-    left: 232px;
-    font-family: PingFangSC-Regular,PingFang SC;
-  }
-  .list-title {
-    width: 240px;
-    height: 28px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    font-family: PingFangSC-Regular,PingFang SC;
-    font-weight: 400;
-    color: rgba(0,0,0,1);
-    line-height: 28px;
-  }
-  .list-desc {
-    width: 563px;
-    height: 52px;
-    margin-bottom: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    color: rgba(128,128,128,1);
-    line-height: 26px;
-  }
-  .more {
-    display: flex;
-    justify-content: space-between;
-  }
-  .date {
-    width:144px;
-    height:22px;
-    font-size:16px;
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:22px;
-  }
-  .el-button--default {
+  .el-pagination {
+    width: 300px;
     padding: 0;
-    width:111px;
-    height:30px;
-    line-height: 30px;
-    font-size: 16px;
-    font-weight: 400px;
-    color: rgba(255,92,92,1);
-    border-radius: none;
-    border:2px solid rgba(255,92,92,1);
   }
-  /* .el-button p {
-el-button
-  } */
-  /* ---------bottom------- */
 </style>

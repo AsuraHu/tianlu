@@ -34,27 +34,28 @@ export default {
     return {
       list: [{
         id: '0001',
-        title: '标题标题标题标题标题标题',
+        title: '价值理念--标题111111',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
         date: '2019-08-20 10:35',
         sty: 'list-wrapper-spc'
       }, {
         id: '0002',
-        title: '标题标题标题标题标题标题',
+        title: '价值理念--标题222222',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
         date: '2019-08-20 10:35',
         sty: 'list-wrapper-spc'
       }, {
         id: '0003',
-        title: '标题标题标题标题标题标题',
+        title: '价值理念--标题333333',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
         date: '2019-08-20 10:35',
         sty: 'list-wrapper-spc'
       }, {
         id: '0004',
-        title: '标题标题标题标题标题标题',
+        title: '价值理念--标题444444',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司四川发展资产管理公司',
-        date: '2019-08-20 10:35'
+        date: '2019-08-20 10:35',
+        sty: 'list-wrapper-last'
       }]
     }
   },
@@ -88,24 +89,20 @@ export default {
   /* -----右侧内容-------- */
   .list-wrapper {
     position: relative;
-    width: 793px;
+    width: 795px;
     height: 160px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
-  .list-wrapper-spc:after {
-    content: "";
-    width: 100%;
-    height: 0px;
-    background-color: #fff;
-    border: 1px #ababab dashed;
-    position: absolute;
-    bottom: -35px;
-    z-index: 1;
-    left: 0;
+  /* ------虚线-------- */
+  .list-wrapper-spc {
+    border-bottom:2px dashed #ababab;
+    padding-bottom: 30px;
+  }
+  .list-wrapper-last {
+    margin-bottom: 126px;
   }
   .list-img {
     position: absolute;
-    top: 5px;
     left: 0;
     width: 201px;
     height: 160px;
@@ -141,11 +138,11 @@ export default {
   }
   .date {
     width:144px;
-    height:22px;
+    height:30px;
     font-size:16px;
     font-weight:400;
     color:rgba(0,0,0,1);
-    line-height:22px;
+    line-height:30px;
   }
   .el-button--default {
     padding: 0;
