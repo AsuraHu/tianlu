@@ -1,5 +1,6 @@
 <template>
   <div class="latest">
+    <a href="#" name="企业动态"></a>
     <div class="left">
       <dl>
         <dt class="title">最新动态</dt>
@@ -7,9 +8,12 @@
         <dd class="text">公示公告</dd>
         <dd class="text">重要活动</dd>
         <div>
-          <el-link
+          <router-link
+            to='/culture'
+            class="seeMore"
             :underline="false"
-          >查看更多</el-link>
+            href="culture"
+          >查看更多</router-link>
         </div>
       </dl>
     </div>
@@ -21,10 +25,19 @@
       >
         <dt class="wrapper-img">
           <img src="~assets/images/位图282_180.png">
+          <!-- <img :src="item.url"/> -->
+          <!-- <el-image
+            src="~assets/images/位图282_180.png"
+            fit="fit">
+          </el-image> -->
         </dt>
-        <dd class=wrapper-desc>
+        <router-link
+          class=wrapper-desc
+          to="/culture"
+          tag="dd"
+        >
           {{item.desc}}
-        </dd>
+        </router-link>
       </dl>
     </div>
     <div class="bottom"></div>
@@ -39,17 +52,17 @@ export default {
       list: [{
         id: '0001',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        // url: '~assets/images/位图.png',
+        url: '~assets/images/位图282_180.png',
         wrapper: 'wrapper'
       }, {
         id: '0002',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        // url: '~assets/images/位图.png',
+        url: '~assets/images/位图282_180.png',
         wrapper: 'wrapper'
       }, {
         id: '0003',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        // url: '~assets/images/位图.png',
+        url: '~assets/images/位图282_180.png',
         wrapper: 'wrapper1'
       }]
     }
@@ -69,13 +82,13 @@ export default {
     width: 170px;
     height: 300px;
     float: left;
+    font-family: PingFang-SC-Bold,PingFang-SC;
   }
   .title {
     width: 80px;
     height: 28px;
     margin-bottom: 60px;
     font-size: 20px;
-    font-family: PingFang-SC-Bold,PingFang-SC;
     font-weight: bold;
     color: rgba(0,0,0,1);
     line-height: 28px;
@@ -86,21 +99,23 @@ export default {
     height: 22px;
     margin-bottom: 30px;
     font-size: 16px;
-    font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     color: rgba(0,0,0,1);
     line-height: 22px;
     cursor: pointer;
   }
-  .el-link--default {
+  .seeMore {
     width: 64px;
     height: 22px;
     margin-top: 34px;
     font-size: 16px;
-    font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     color: rgba(24,101,216,1);
     line-height: 22px;
+    text-decoration: none;
+  }
+  .seeMore:hover {
+    color: #409eff;
   }
   /* ----------------right------------------ */
   .right {
@@ -132,6 +147,7 @@ export default {
     font-weight: 500;
     color: rgba(42,42,42,1);
     line-height: 26px;
+    cursor: pointer;
   }
   /* -----------------bottom--------------- */
   .bottom {

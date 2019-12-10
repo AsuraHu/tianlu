@@ -40,7 +40,7 @@ export default {
     padding: 0px;
   }
   .el-main {
-    height: 1800px;
+    height: 1900px;
     padding: 0px;
   }
   .el-footer {

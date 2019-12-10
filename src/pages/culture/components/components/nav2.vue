@@ -20,10 +20,19 @@
         </div>
         <div class="more">
           <p class="date">{{item.date}}</p>
-          <el-button  @click="handleClick">+阅读全文</el-button>
+          <el-button @click="handleClick">+阅读全文</el-button>
         </div>
       </dd>
     </dl>
+    <!-- ----分页器------ -->
+    <div class="block">
+      <el-pagination
+        :current-page="1"
+        :page-size="4"
+        layout="prev, pager, next"
+        :total="4">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -154,5 +163,15 @@ export default {
     color: rgba(255,92,92,1);
     border-radius: none;
     border:2px solid rgba(255,92,92,1);
+  }
+  /* ----------分页器-------- */
+  .pages {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .el-pagination {
+    width: 300px;
+    padding: 0;
+    margin-left: 107px;
   }
 </style>

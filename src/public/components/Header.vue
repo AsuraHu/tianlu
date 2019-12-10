@@ -4,14 +4,14 @@
       <span class="logo-item">LOGO</span>
     </div>
     <div class="nav">
-      <el-link
+      <a
         class="nav-item"
-        :underline="false"
-        v-for="(nav, index) of navList"
-        :key="index"
+        v-for="nav of navList"
+        :key="nav.id"
+        :href="nav.url"
       >
-        {{nav}}
-      </el-link>
+        {{nav.name}}
+      </a>
     </div>
     <div class="language">EN</div>
   </div>
@@ -22,7 +22,31 @@ export default {
   name: 'Header',
   data () {
     return {
-      navList: ['公司简介', '企业动态', '产品介绍', '客户服务', '人力资源', '联系方式']
+      navList: [{
+        id: 'gsjj',
+        name: '公司简介',
+        url: '/'
+      }, {
+        id: 'qydt',
+        name: '企业动态',
+        url: '/#企业动态'
+      }, {
+        id: 'cpjs',
+        name: '产品介绍',
+        url: '/'
+      }, {
+        id: 'kffw',
+        name: '客户服务',
+        url: '/'
+      }, {
+        id: 'rlzy',
+        name: '人力资源',
+        url: '/'
+      }, {
+        id: 'lxfs',
+        name: '联系方式',
+        url: '/#联系方式'
+      }]
     }
   }
 }
@@ -66,16 +90,17 @@ export default {
     height: 100px;
   }
   .nav-item {
+    text-decoration: none;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 36px;
     width: 80px;
-    height: 28px;
+    height: 100px;
     font-size: 20px;
     font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     color: rgba(0,0,0,1);
-    line-height: 28px;
+    line-height: 100px;
   }
   .nav-item:first-child {
     margin-left: 60px;
@@ -84,7 +109,7 @@ export default {
   .language {
     position: absolute;
     top: 30px;
-    right: 125px;
+    right: 95px;
     width: 40px;
     height: 40px;
     line-height: 40px;

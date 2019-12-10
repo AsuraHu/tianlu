@@ -1,15 +1,9 @@
 <template>
   <div>
-    <el-main :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
-      height="300px"
-      border
-      stripe
-      style="width: 100%"
-      >
-      <ul>
-        <li v-for="item of tableData" :key="item.name" v-show="false">{{item.name}}</li>
-      </ul>
-    </el-main>
+    <div
+      :tableData="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+    >
+    </div>
     <div class="block">
       <el-pagination
         @size-change="handleSizeChange"
@@ -21,6 +15,10 @@
         :total="totalNum">
       </el-pagination>
     </div>
+    <el-image
+      src="~assets/images/位图1_282_180.png"
+      fit="fit"
+      ></el-image>
   </div>
 </template>
 
@@ -29,10 +27,9 @@ export default {
   name: 'pagelist',
   data () {
     return {
-      // tableData: [],
-      currentPage: 1,
-      pageSize: 1,
-      totalNum: 1000,
+      currentPage: 1, // 当前页数
+      pageSize: 3, // 每页显示条目个数
+      totalNum: null,
       tableData: [{
         date: '2016-05-02',
         name: '王小虎1',
@@ -61,7 +58,7 @@ export default {
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
+      console.log(this.tableData.length)
       this.pageSize = val
     },
     handleCurrentChange (val) {

@@ -8,7 +8,7 @@
         <dd class="text">重要活动</dd>
         <div>
           <router-link
-            class="link"
+            class="seeMore"
             to="/culture"
           >
             查看更多
@@ -25,9 +25,13 @@
         <dt class="wrapper-img">
           <img src="~assets/images/位图1_282_180.png">
         </dt>
-        <dd class=wrapper-desc>
+        <router-link
+          class=wrapper-desc
+          to="/culture"
+          tag="dd"
+        >
           {{item.desc}}
-        </dd>
+        </router-link>
       </dl>
     </div>
   </div>
@@ -71,13 +75,13 @@ export default {
     width: 170px;
     height: 300px;
     float: left;
+    font-family: PingFang-SC-Bold,PingFang-SC;
   }
   .title {
     width: 80px;
     height: 28px;
     margin-bottom: 60px;
     font-size: 20px;
-    font-family: PingFang-SC-Bold,PingFang-SC;
     font-weight: bold;
     color: rgba(0,0,0,1);
     line-height: 28px;
@@ -88,24 +92,22 @@ export default {
     height: 22px;
     margin-bottom: 30px;
     font-size: 16px;
-    font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     color: rgba(0,0,0,1);
     line-height: 22px;
     cursor: pointer;
   }
-  .link {
+  .seeMore {
     width: 64px;
     height: 22px;
     margin-top: 34px;
     font-size: 16px;
-    font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     color: rgba(24,101,216,1);
     line-height: 22px;
     text-decoration: none;
   }
-  .link:hover {
+  .seeMore:hover {
     color: #409eff;
   }
   /* ----------------right------------------ */
@@ -138,5 +140,6 @@ export default {
     font-weight: 500;
     color: rgba(42,42,42,1);
     line-height: 26px;
+    cursor: pointer;
   }
 </style>

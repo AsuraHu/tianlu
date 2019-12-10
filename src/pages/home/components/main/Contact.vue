@@ -1,20 +1,23 @@
 <template>
-  <div class="contact">
-    <div class="left">联系我们</div>
-    <div class="mid">
-      <img src="~assets/images/1981565168836_.pic_hd.png">
-    </div>
-    <div class="right">
-      <dl>
-        <dt class=title>四川发展天路电力有限公司</dt>
-        <dd
-          class="info"
-          v-for="(item, index) of list"
-          :key="index"
-        >
-          {{item}}
-        </dd>
-      </dl>
+  <div>
+    <a href="#" name="联系方式"></a>
+    <div class="contact">
+      <div class="left">联系我们</div>
+      <div class="mid">
+        <img src="~assets/images/1981565168836_.pic_hd.png">
+      </div>
+      <div class="right">
+        <dl>
+          <dt class=title>四川发展天路电力有限公司</dt>
+          <dd
+            class="info"
+            v-for="(item, index) of list"
+            :key="index"
+          >
+            {{item}}
+          </dd>
+        </dl>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +57,7 @@ export default {
     top: 104px;
     left: 265px;
     width: 480px;
-    height: 280px;
+    height: 260px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 1);
   }

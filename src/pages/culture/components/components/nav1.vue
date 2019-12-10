@@ -20,10 +20,19 @@
         </div>
         <div class="more">
           <p class="date">{{item.date}}</p>
-          <el-button>+阅读全文</el-button>
+          <el-button @click="handleClick">+阅读全文</el-button>
         </div>
       </dd>
     </dl>
+    <!-- ----分页器------ -->
+    <div class="block">
+      <el-pagination
+        :current-page="1"
+        :page-size="4"
+        layout="prev, pager, next"
+        :total="4">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -58,6 +67,11 @@ export default {
         sty: 'list-wrapper-last'
       }]
     }
+  },
+  methods: {
+    handleClick () {
+      this.$router.push('/detail')
+    }
   }
 }
 </script>
@@ -71,15 +85,6 @@ export default {
     height: 2px;
     color: #ababab;
     margin-top: 0;
-  }
-  .first-title {
-    width: 96px;
-    height: 90px;
-    font-size: 24px;
-    font-family: PingFangSC-Regular,PingFang SC;
-    font-weight: 400;
-    color: rgba(0,0,0,1);
-    line-height: 90px;
   }
   /* -----右侧内容-------- */
   .list-wrapper {
@@ -149,5 +154,15 @@ export default {
     color: rgba(255,92,92,1);
     border-radius: none;
     border:2px solid rgba(255,92,92,1);
+  }
+  /* ----------分页器-------- */
+  .pages {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .el-pagination {
+    width: 300px;
+    padding: 0;
+    margin-left: 107px;
   }
 </style>

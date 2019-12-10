@@ -15,17 +15,6 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-    <!-- -----分页器------- -->
-    <div class="pages">
-      <div class="block">
-        <el-pagination
-          :current-page.sync="currentPage"
-          :page-size="4"
-          layout=" prev, pager, next"
-          :total="4">
-        </el-pagination>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -117,6 +106,7 @@ export default {
     height: 100%;
     border: 1px solid rgba(171,171,171,1);
     border-top: none;
+    border-bottom: 1px solid rgba(171, 171, 171,1);
   }
   /* 改变左侧导航的背景、宽高 */
   .info-wrapper >>> .el-tabs__nav-wrap,
@@ -150,17 +140,11 @@ export default {
   .el-tabs >>> .el-tabs__content {
     width: 857px;
     margin-left: 60px;
+    height: 978px;
+    overflow: unset;
+    left: 221px;
   }
   .el-tab-pane {
     margin-left: 60px;
-  }
-  /* ----------分页器-------- */
-  .pages {
-    width: 300px;
-    margin: 0 auto;
-  }
-  .el-pagination {
-    width: 300px;
-    padding: 0;
   }
 </style>
