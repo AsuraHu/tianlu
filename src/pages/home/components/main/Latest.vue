@@ -24,8 +24,8 @@
         :key="item.id"
       >
         <dt class="wrapper-img">
-          <img src="~assets/images/位图282_180.png">
-          <!-- <img :src="item.url"/> -->
+          <!-- <img src="~assets/images/位图282_180.png"> -->
+          <img :src="item.url"/>
           <!-- <el-image
             src="~assets/images/位图282_180.png"
             fit="fit">
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import url from 'assets/images/位图282_180.png'
 export default {
   name: 'MainLatest',
   data () {
@@ -52,17 +53,17 @@ export default {
       list: [{
         id: '0001',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        url: '~assets/images/位图282_180.png',
+        url: url,
         wrapper: 'wrapper'
       }, {
         id: '0002',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        url: '~assets/images/位图282_180.png',
+        url: url,
         wrapper: 'wrapper'
       }, {
         id: '0003',
         desc: '四川发展资产管理公司积极利用资本市场融资能力四川发展资产管理公司积极利用资本市场融资能力',
-        url: '~assets/images/位图282_180.png',
+        url: url,
         wrapper: 'wrapper1'
       }]
     }
